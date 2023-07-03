@@ -3,7 +3,7 @@
 
 ---
 
-##  Unity Package
+## KoalaGPT Unity Package
 An official Unity package that allows you to use the KoalaGPT API directly in the Unity game engine.
 
 ## How To Use
