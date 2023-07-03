@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <!-- <ImplicitUsings>enable</ImplicitUsings> -->
+        <Nullable>enable</Nullable>
+        <LangVersion>9</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include=".github\ISSUE_TEMPLATE\bug_report.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Documentation~\" />
+      <Folder Include="Samples~\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="NUnit" Version="3.13.3" />
+      <PackageReference Include="Unity3D.SDK" Version="2021.1.14.1" />
+      <PackageReference Include="Unity3D.UnityEngine.UI" Version="2018.3.5.1" />
+    </ItemGroup>
+
+</Project>

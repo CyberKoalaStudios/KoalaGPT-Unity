@@ -1,0 +1,33 @@
+{
+  "name": "com.cyberkoalastudios.koalagpt",
+  "version": "0.0.1",
+  "displayName": "KoalaGPT Unity",
+  "description": "An official KoalaGPT Unity Package that aims to help you use CyberKoala API directly in Unity Game engine.",
+  "unity": "2020.3",
+  "unityRelease": "0f1",
+  "documentationUrl": "https://github.com/CyberKoalaStudios/KoalaGPT-Unity",
+  "changelogUrl": "https://github.com/CyberKoalaStudios/KoalaGPT-Unity/changelog.html",
+  "licensesUrl": "https://github.com/CyberKoalaStudios/KoalaGPT-Unity/licensing.html",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  },
+  "keywords": [
+    "koalagpt",
+    "cyberkoala",
+    "cyberkoalastudios",
+    "cyberkoalaai",
+    "ai"
+  ],
+  "author": {
+    "name": "CyberKoala",
+    "email": "contact@cyberkoalastudios.com",
+    "url": "https://cyberkoalastudios.com"
+  },
+  "samples": [
+    {
+      "displayName": "GPT",
+      "description": "KoalaGPT example using chat completion API.",
+      "path": "Samples~/KoalaGPT"
+    }
+  ]
+}
