@@ -18,8 +18,8 @@ To import the package, follow these steps:
 ### Setting Up Your CyberKoala Account
 To use the KoalaGPT API, you need to have an CyberKoala account. Follow these steps to create an account and generate an API key:
 
-- Go to https://cyberkoala.ru/main/ and sign up for an account
-- Once you have created an account, go to https://cyberkoala.ru/main/account/api-keys
+- Go to https://beta.cyberkoala.ru/ and sign up for an account
+- Once you have created an account, go to https://beta.cyberkoala.ru/main/dashboard
 - Buy a new secret key and save it
 
 ### Saving Your Credentials
