@@ -20,9 +20,8 @@ namespace KoalaGPT
     public class KoalaGPTApi
     {
         /// KoalaGPT API base path for requests.
-        private const string BASE_PATH = "https://gpt.cyberkoala.ru/backend-api/v2";
-        // private const string BASE_PATH = "http://127.0.0.1:1338/backend-api/v2";
-
+        private const string BASE_PATH = "https://gpt.cyberkoala.ru/backend-api/
+            
         /// Used for serializing and deserializing PascalCase request object fields into snake_case format for JSON. Ignores null fields when creating JSON strings.
         private readonly JsonSerializerSettings jsonSerializerSettings = new()
         {
