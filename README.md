@@ -80,7 +80,7 @@ private async void SendRequest()
 ### Примеры проектов
 Этот пакет включает в себя примеры сцен, которые вы можете импортировать через Package Manager:
 
-- **KoalaGPT sample:** Пример чата наподобие KoalaGPTe.
+- **KoalaGPT sample:** Пример чата наподобие ChatGPT.
 
 ### Поддерживаемые версии Unity для сборок WebGL
 В следующей таблице показаны поддерживаемые версии Unity для сборок WebGL:
