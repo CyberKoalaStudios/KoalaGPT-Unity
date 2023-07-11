@@ -13,7 +13,7 @@
 - Откройте Unity 2019 или новее
 - Перейдите в `Window > Package Manager`
 - Нажмите кнопку «+» и выберите  `Add package from git URL`.
-- Вставьте URL-адрес репозитория `https://github.com/srcnalt/KoalaGPT-Unity.git` и нажмите «Add».
+- Вставьте URL-адрес репозитория `https://github.com/CyberKoalaStudios/KoalaGPT-Unity.git` и нажмите «Add».
 
 ### Настройка учетной записи CyberKoala AI
 Чтобы использовать KoalaGPT API, вам необходимо иметь учетную запись CyberKoala AI. Выполните следующие действия, чтобы создать учетную запись и сгенерировать ключ API:
