@@ -43,7 +43,7 @@
 Вы также можете передать свой ключ API в KoalaGPTApi при создании его экземпляра, но это крайне **не рекомендуется!**
 
 ```csharp
-var openai = new KoalaGPTApi("ko-...er");
+var _koalaGPTApi = new KoalaGPTApi("ko-...er");
 ```
 
 **ВАЖНО:** Ваш ключ API является секретным и привязан к учетной записи.
