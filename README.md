@@ -4,36 +4,35 @@
 ---
 
 ## KoalaGPT Unity Package
-Официальный пакет Unity, позволяющий использовать API KoalaGPT непосредственно в игровом движке Unity.
+An official Unity package that allows you to use the KoalaGPT API directly in the Unity game engine.
 
 ![Imgur](https://i.imgur.com/BYOPVby.png)
 
-## Как использовать
+## How To Use
 
-### Импорт пакета
-Чтобы импортировать пакет, выполните следующие действия:
-- Откройте Unity 2019 или новее
-- Перейдите в `Window > Package Manager`
-- Нажмите кнопку «+» и выберите  `Add package from git URL`.
-- Вставьте URL-адрес репозитория `https://github.com/CyberKoalaStudios/KoalaGPT-Unity.git` и нажмите «Add».
+### Importing the Package
+To import the package, follow these steps:
+- Open Unity 2019 or later
+- Go to `Window > Package Manager`
+- Click the `+` button and select `Add package from git URL`
+- Paste the repository URL https://github.com/CyberKoalaStudios/KoalaGPT-Unity.git and click `Add`
 
-### Настройка учетной записи CyberKoala AI
-Чтобы использовать KoalaGPT API, вам необходимо иметь учетную запись CyberKoala AI. Выполните следующие действия, чтобы создать учетную запись и сгенерировать ключ API:
+### Setting Up Your CyberKoala Account
+To use the KoalaGPT API, you need to have an CyberKoala account. Follow these steps to create an account and generate an API key:
 
-- Зайдите на https://beta.cyberkoala.ru/ и зарегистрируйте аккаунт
-- После создания учетной записи перейдите на https://beta.cyberkoala.ru/main/dashboard
-- Пополните баланс аккаунта, затем сгенерируйте новый секретный ключ и сохраните его
+- Go to https://beta.cyberkoala.ru/ and sign up for an account
+- Once you have created an account, go to https://beta.cyberkoala.ru/main/dashboard
+- Buy a new secret key and save it
 
-### Сохранение ваших учетных данных (ключа)
+### Saving Your Credentials
+To make requests to the KoalaGPT API, you need to use your API key and organization name (if applicable). To avoid exposing your API key in your Unity project, you can save it in your device's local storage.
 
-Чтобы делать запросы к API KoalaGPT, вам необходимо использовать персональный ключ API и название организации (если применимо). Чтобы избежать раскрытия вашего ключа API в проекте Unity, вы можете сохранить его в локальном хранилище вашего устройства.
+To do this, follow these steps:
 
-Для этого выполните следующие действия:
-
-- Создайте папку с именем .cyberkoala в своем домашнем каталоге (например, `C:Users\User\` для Windows или `~\` для Linux или Mac)
-- Создайте файл с именем `auth.json` в папке `.cyberkoala`
-- Добавьте поле api_key и поле организации (если применимо) в файл auth.json и сохраните его.
-- Вот пример того, как должен выглядеть ваш файл auth.json:
+- Create a folder called .cyberkoala in your home directory (e.g. `C:Users\UserName\` for Windows or `~\` for Linux or Mac)
+- Create a file called `auth.json` in the `.cyberkoala` folder
+- Add an api_key field and a organization field (if applicable) to the auth.json file and save it
+- Here is an example of what your auth.json file should look like:
 
 ```json
 {
@@ -42,22 +41,16 @@
 }
 ```
 
-Вы также можете передать свой ключ API в KoalaGPTApi при создании его экземпляра, но это крайне **не рекомендуется!**
+**IMPORTANT:** Your API key is a secret.
+Do not share it with others or expose it in any client-side code (e.g. browsers, apps).
+If you are using KoalaGPT for production, make sure to run it on the server side, where your API key can be securely loaded from an environment variable or key management service.
 
-```csharp
-var _koalaGPTApi = new KoalaGPTApi("ko-...er");
-```
+### Making Requests to KoalaGPT
+You can use the `KoalaGPTApi` class to make async requests to the KoalaGPT API.
 
-**ВАЖНО:** Ваш ключ API является секретным и привязан к учетной записи.
-Не делитесь ими с другими и не раскрывайте их в каком-либо клиентском коде (например, в браузерах, приложениях).
-Если вы используете KoalaGPT-Unity в продуктовой среде (продакшн), обязательно запустите данный пакет на стороне сервера, где ваш ключ API может быть безопасно загружен из переменной среды или службы управления ключами.
+All methods are asynchronous and can be accessed directly from an instance of the `KoalaGPTApi` class.
 
-### Отправка запросов к KoalaGPT
-Вы можете использовать класс `KoalaGPTApi` для выполнения асинхронных запросов к API KoalaGPT.
-
-Все методы являются асинхронными и доступны непосредственно из экземпляра класса `KoalaGPTApi`.
-
-Вот пример того, как сделать запрос:
+Here is an example of how to make a request:
 
 ```csharp
 private async void SendRequest()
@@ -79,19 +72,17 @@ private async void SendRequest()
 }
 ```
 
-### Примеры проектов
-Этот пакет включает в себя примеры сцен, которые вы можете импортировать через Package Manager:
+### Sample Projects
+This package includes two sample scenes that you can import via the Package Manager:
 
-- **KoalaGPT sample:** Пример чата наподобие ChatGPT.
+- **KoalaGPT sample:** A simple KoalaGPT like chat example.
 
-### Поддерживаемые версии Unity для сборок WebGL
-В следующей таблице показаны поддерживаемые версии Unity для сборок WebGL:
+### Supported Unity Versions for WebGL Builds
+The following table shows the supported Unity versions for WebGL builds:
 
-| Версия Unity| Поддерживается|
+| Unity Version | Supported |
 | --- | --- |
 | 2022.2.8f1 | ✅ |
 | 2021.3.5f1 | ⛔ |
 | 2020.3.0f1 | ✅ |
-
-### [WIKI](https://github.com/CyberKoalaStudios/KoalaGPT-Unity/wiki)
 
