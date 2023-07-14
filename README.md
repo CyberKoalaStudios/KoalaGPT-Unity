@@ -6,6 +6,8 @@
 ## KoalaGPT Unity Package
 Официальный пакет Unity, позволяющий использовать API KoalaGPT непосредственно в игровом движке Unity.
 
+[Imgur](https://i.imgur.com/BYOPVby.png)
+
 ## Как использовать
 
 ### Импорт пакета
