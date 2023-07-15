@@ -9,6 +9,9 @@ An official Unity package that allows you to use the KoalaGPT API directly in th
 ![Imgur](https://i.imgur.com/BYOPVby.png)
 
 ## How To Use
+See [[Video](https://www.youtube.com/watch?v=htAeWQ5OaZE)](https://youtu.be/htAeWQ5OaZE)
+
+[![](http://img.youtube.com/vi/htAeWQ5OaZE/0.jpg)](http://www.youtube.com/watch?v=htAeWQ5OaZE "KoalaGPT API Quick Start Tutorial")
 
 ### Importing the Package
 To import the package, follow these steps:
