@@ -200,7 +200,7 @@ namespace KoalaGPT
         private async Task<AudioClip> DispatchAudioRequest(string path, byte[] payload = null )
         {
             using var request = UnityWebRequest.Put(path, payload);
-            request.method = UnityWebRequest.kHttpVerbGET;
+            request.method = UnityWebRequest.kHttpVerbPOST;
             request.SetHeaders(Configuration, ContentType.ApplicationJson);
             request.downloadHandler = new DownloadHandlerAudioClip(path, AudioType.WAV);
             
