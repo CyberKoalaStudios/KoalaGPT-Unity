@@ -20,8 +20,8 @@ namespace KoalaGPT
     public class KoalaGPTApi
     {
         /// KoalaGPT API base path for requests.
-        private const string BASE_PATH = "https://gpt.cyberkoala.ru/backend-api/
-            
+        private const string BASE_PATH = "https://gpt.cyberkoala.ru/backend-api/v2";
+
         /// Used for serializing and deserializing PascalCase request object fields into snake_case format for JSON. Ignores null fields when creating JSON strings.
         private readonly JsonSerializerSettings jsonSerializerSettings = new()
         {
@@ -302,6 +302,42 @@ namespace KoalaGPT
         public async Task<string> CreateChatCompletionSimplePrompt(CreateChatCompletionRequestPrompt request)
         {
             var path = $"{BASE_PATH}/unity";
+
+            var messages = new List<Meta>();
+            
+            var message = new Meta();
+            message.Content = new Content()
+            {
+                ContentType = "text",   
+                InternetAccess = false,
+                Parts = request.Messages,
+            };
+
+            messages.Add(message);
+            
+            var req = new CreateChatCompletionRequestSimple
+            {
+                Model = request.Model,
+                Meta = messages,
+                Action = "_ask",
+                ConversationId = new Guid().ToString(),
+                Jailbreak = "default",
+            };
+            
+            
+            var payload = CreatePayloadKoala(req);
+            return await DispatchSimpleRequest(path, payload);
+        }
+
+        
+        /// <summary>
+        ///     Creates a voice generation request as in KoalaGPT.
+        /// </summary>
+        /// <param name="request">See <see cref="CreateChatCompletionRequestPrompt"/></param>
+        /// <returns>string</returns>
+        public async Task<VoiceResponse> CreateSpeechPrompt(CreateChatCompletionRequestPrompt request)
+        {
+            var path = $"{BASE_PATH}/unity/voice";
 
             var messages = new List<Meta>();
             

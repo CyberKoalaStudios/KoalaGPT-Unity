@@ -15,6 +15,7 @@ namespace KoalaGPT
         public string ContentType { get; set; }
         public List<string>? Conversation { get; set; }
         public bool InternetAccess { get; set; }
+        public string? Voice { get; set; }
         public List<Part> Parts { get; set; }
     }
 
