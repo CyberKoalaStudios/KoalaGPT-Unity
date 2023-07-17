@@ -45,15 +45,15 @@ namespace KoalaGPT.Tests
         [Test]
         public async Task Create_Speech()
         {
-            var _messages = new List<Part>();
+            var messages = new List<Part>();
             var message = new Part();
             message.Role = "user";
             message.Content = "Hello";
 
-            _messages.Add(message);
+            messages.Add(message);
 
             var request = new CreateChatCompletionRequestPrompt();
-            request.Messages = _messages;
+            request.Messages = messages;
             request.Model = "gpt4";
             
             var res = await _koalaGptApi.CreateSpeechPrompt(request);

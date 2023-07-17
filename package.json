@@ -1,6 +1,6 @@
 {
   "name": "com.cyberkoalastudios.koalagpt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "displayName": "KoalaGPT Unity",
   "description": "An official KoalaGPT Unity Package that aims to help you use CyberKoala API directly in Unity Game engine.",
   "unity": "2020.3",

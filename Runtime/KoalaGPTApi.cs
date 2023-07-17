@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.IO;
 using UnityEngine;
 using System.Text;
@@ -195,6 +196,21 @@ namespace KoalaGPT
 
             return data;
         }
+        
+        private async Task<AudioClip> DispatchAudioRequest(string path, byte[] payload = null )
+        {
+            using var request = UnityWebRequest.Put(path, payload);
+            request.method = UnityWebRequest.kHttpVerbGET;
+            request.SetHeaders(Configuration, ContentType.ApplicationJson);
+            request.downloadHandler = new DownloadHandlerAudioClip(path, AudioType.WAV);
+            
+            var asyncOperation = request.SendWebRequest();
+            while (!asyncOperation.isDone) await Task.Yield();
+
+            AudioClip audioClip = DownloadHandlerAudioClip.GetContent(request);
+
+            return audioClip;
+        }
 
         
         /// <summary>
@@ -335,7 +351,7 @@ namespace KoalaGPT
         /// </summary>
         /// <param name="request">See <see cref="CreateChatCompletionRequestPrompt"/></param>
         /// <returns>string</returns>
-        public async Task<VoiceResponse> CreateSpeechPrompt(CreateChatCompletionRequestPrompt request)
+        public async Task<AudioClip> CreateSpeechPrompt(CreateChatCompletionRequestPrompt request)
         {
             var path = $"{BASE_PATH}/unity/voice";
 
@@ -360,9 +376,8 @@ namespace KoalaGPT
                 Jailbreak = "default",
             };
             
-            
             var payload = CreatePayloadKoala(req);
-            return await DispatchSimpleRequest(path, payload);
+            return await DispatchAudioRequest(path, payload);
         }
 
         
@@ -382,6 +397,34 @@ namespace KoalaGPT
 
             DispatchRequest(path, UnityWebRequest.kHttpVerbPOST, onResponse, onComplete, token, payload);
         }
+        
+        // /// <summary>
+        // ///     Transcribes audio into the input language.
+        // /// </summary>
+        // /// <param name="request">See <see cref="CreateAudioTranscriptionsRequest"/></param>
+        // /// <returns>See <see cref="CreateAudioResponse"/></returns>
+        // public async Task<CreateAudioResponse> CreateAudioTranscription(CreateAudioTranscriptionsRequest request)
+        // {
+        //     var path = $"{BASE_PATH}/audio/transcriptions";
+        //     
+        //     var form = new List<IMultipartFormSection>();
+        //     if (string.IsNullOrEmpty(request.File))
+        //     {
+        //         form.AddData(request.FileData, "file", $"audio/{Path.GetExtension(request.File)}");
+        //     }
+        //     else
+        //     {
+        //         form.AddFile(request.File, "file", $"audio/{Path.GetExtension(request.File)}");
+        //     }
+        //     form.AddValue(request.Model, "model");
+        //     form.AddValue(request.Prompt, "prompt");
+        //     form.AddValue(request.ResponseFormat, "response_format");
+        //     form.AddValue(request.Temperature, "temperature");
+        //     form.AddValue(request.Language, "language");
+        //
+        //     return await DispatchRequest<CreateAudioResponse>(path, form);
+        // }
+        //
 
         /// <summary>
         ///     Classifies if text violates KoalaGPT's Content Policy
