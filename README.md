@@ -82,24 +82,26 @@ Voices available: `jane, filipp, omazh, madirus`
 ```csharp
 private async void SpeakKoalaGPT()
         {
+            List<Part> _messages;
+            
             var message = new Part();
             message.Role = "user";
             message.Content = "Hi! Help me to pick right wand";
 
             _messages.Add(message);
 
-            var request = new CreateChatCompletionRequestPrompt();
+            var request = new CreateAudioCompletionRequest();
             request.Messages = _messages;
             request.Model = "gpt4";
-            request.Voice = "filipp";
+            request.Voice = "jane";
             
             var response = await _koalaGptApi.CreateSpeechPrompt(request);
-
+            
             if (response != null)
             {
                 var audioClip = response;
                 Debug.Log(audioClip.length);
-     
+
                 _audioSource.clip = audioClip;
                 _audioSource.Play();
             }
