@@ -85,13 +85,13 @@ private async void SpeakKoalaGPT()
             var message = new Part();
             message.Role = "user";
             message.Content = "Hi! Help me to pick right wand";
-            message.Voice = "filipp";
 
             _messages.Add(message);
 
             var request = new CreateChatCompletionRequestPrompt();
             request.Messages = _messages;
             request.Model = "gpt4";
+            request.Voice = "filipp";
             
             var response = await _koalaGptApi.CreateSpeechPrompt(request);
 

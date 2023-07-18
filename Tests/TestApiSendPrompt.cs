@@ -52,9 +52,10 @@ namespace KoalaGPT.Tests
 
             messages.Add(message);
 
-            var request = new CreateChatCompletionRequestPrompt();
+            var request = new CreateAudioCompletionRequest();
             request.Messages = messages;
             request.Model = "gpt4";
+            request.Voice = "filipp";
             
             var res = await _koalaGptApi.CreateSpeechPrompt(request);
             Assert.NotNull(res);

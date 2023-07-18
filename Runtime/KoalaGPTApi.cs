@@ -351,7 +351,7 @@ namespace KoalaGPT
         /// </summary>
         /// <param name="request">See <see cref="CreateChatCompletionRequestPrompt"/></param>
         /// <returns>string</returns>
-        public async Task<AudioClip> CreateSpeechPrompt(CreateChatCompletionRequestPrompt request)
+        public async Task<AudioClip> CreateSpeechPrompt(CreateAudioCompletionRequest request)
         {
             var path = $"{BASE_PATH}/unity/voice";
 

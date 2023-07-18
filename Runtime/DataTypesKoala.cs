@@ -8,7 +8,6 @@ namespace KoalaGPT
     {
         public string Content { get; set; }
         public string Role { get; set; }
-        public string? Voice { get; set; }
     }
 
     public struct Content
@@ -36,6 +35,12 @@ namespace KoalaGPT
     }
     
     public sealed class CreateChatCompletionRequestPrompt
+    {
+        public string Model { get; set; }
+        public List<Part> Messages { get; set; }
+    }
+    
+    public sealed class CreateAudioCompletionRequest
     {
         public string Model { get; set; }
         public List<Part> Messages { get; set; }
