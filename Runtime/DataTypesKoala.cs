@@ -8,6 +8,7 @@ namespace KoalaGPT
     {
         public string Content { get; set; }
         public string Role { get; set; }
+        public string? Voice { get; set; }
     }
 
     public struct Content
@@ -38,5 +39,6 @@ namespace KoalaGPT
     {
         public string Model { get; set; }
         public List<Part> Messages { get; set; }
+        public string Voice { get; set; }
     }
 }

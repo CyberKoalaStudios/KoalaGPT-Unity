@@ -362,6 +362,7 @@ namespace KoalaGPT
             {
                 ContentType = "text",   
                 InternetAccess = false,
+                Voice = request.Voice,
                 Parts = request.Messages,
             };
 

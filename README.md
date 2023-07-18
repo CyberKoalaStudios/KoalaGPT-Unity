@@ -77,6 +77,35 @@ private async void SendRequest()
 }
 ```
 
+### Making Voice Request.
+Voices available: `jane, filipp, omazh, madirus`
+```csharp
+private async void SpeakKoalaGPT()
+        {
+            var message = new Part();
+            message.Role = "user";
+            message.Content = "Hi! Help me to pick right wand";
+            message.Voice = "filipp";
+
+            _messages.Add(message);
+
+            var request = new CreateChatCompletionRequestPrompt();
+            request.Messages = _messages;
+            request.Model = "gpt4";
+            
+            var response = await _koalaGptApi.CreateSpeechPrompt(request);
+
+            if (response != null)
+            {
+                var audioClip = response;
+                Debug.Log(audioClip.length);
+     
+                _audioSource.clip = audioClip;
+                _audioSource.Play();
+            }
+        }
+```
+
 ### Sample Projects
 This package includes two sample scenes that you can import via the Package Manager:
 
